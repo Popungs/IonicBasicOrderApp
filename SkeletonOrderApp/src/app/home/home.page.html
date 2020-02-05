@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title class ="head">
+        <h1 class="title">Menus</h1>
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="openNewItemPage()"> 
+        <ion-icon slot="icon-only" name="add"> </ion-icon>
+      </ion-button> 
+    </ion-buttons>
+
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+      <ion-item *ngFor="let item of items" (click) = "goToEditItem(item)">
+              <!-- <ion-thumbnail slot="end">  -->
+        <!-- <ion-item-divider> -->
+          <div>
+          <ion-img [src]="item.img" alt = "..." class ="center"></ion-img>
+          <!-- </ion-thumbnail> --> 
+          <p>Menu Name :{{ item.name }}   Description: {{ item.description}}</p>
+          <p>${{ item.price }}   {{ item.category }} </p>
+          </div>
+          <!-- </ion-item-divider> -->
+        <!-- <ion-checkbox slot ="start" [(ngModel)] ="item.ischecked"></ion-checkbox> -->
+
+      </ion-item>
+    </ion-list>
+    
+</ion-content>

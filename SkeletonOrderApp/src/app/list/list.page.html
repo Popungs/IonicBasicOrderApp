@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      PlaceYourOrderHere
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <form [formGroup]="order_item_form" (submit) ="orderPlace()">
+    <ion-list>
+      <ion-item *ngFor="let item of items" >
+              <!-- <ion-thumbnail slot="end">  -->
+        <!-- <ion-item-divider> -->
+          <div>
+      
+          <ion-img [src]="item.img" alt = "..." class ="center"></ion-img>
+          <!-- </ion-thumbnail> --> 
+          <p>{{ item.name }}    {{ item.description}}</p>
+          <p>${{ item.price }} </p>
+          </div>
+          <!-- </ion-item-divider> -->
+        <ion-checkbox slot ="start" [(ngModel)] ="item.ischecked" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+        
+      </ion-item>
+    </ion-list>
+    <ion-button class="submit-btn" expand="block" type="submit" >PlaceOrder</ion-button>
+  </form>    
+</ion-content>

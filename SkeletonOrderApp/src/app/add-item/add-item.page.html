@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-item</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Description</ion-label>
+      <ion-input type="text" formControlName="description" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Price</ion-label>
+      <ion-input type="number" formControlName="price" required></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label>Select Category</ion-label>
+        <ion-select value="???" okText="Okay" cancelText="Dismiss" formControlName = "category">
+          <ion-select-option value="Desert">desert</ion-select-option>
+          <ion-select-option value="Dish">dish</ion-select-option>
+          <ion-select-option value="Drink">drink</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      
+    <ion-item>
+        <ion-label>Select Picture</ion-label>
+        <ion-select value="???" okText="Okay" cancelText="Dismiss" formControlName = "image">
+          <ion-select-option value="assets/chicken.jpg">Chicken</ion-select-option>
+          <ion-select-option value="assets/FlankSteak.jpg">FlankSteak</ion-select-option>
+          <ion-select-option value="assets/hamburger.jpg">Hamburger</ion-select-option>
+          <ion-select-option value="assets/pizza.jpg">Pizza</ion-select-option>
+          <ion-select-option value="assets/lasgana.jpg">Lasagna</ion-select-option>
+          <ion-select-option value="assets/pasta.jpg">Pasta</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+    <ion-item>
+      <ion-label>MM DD YY</ion-label>
+      <ion-datetime displayFormat="MM DD YY" placeholder="Select Date" formControlName="date"></ion-datetime>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_item_form.valid">PlaceOrder</ion-button>
+  </form>
+
+</ion-content>
